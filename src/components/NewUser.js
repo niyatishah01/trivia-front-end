@@ -1,6 +1,7 @@
 import React from 'react'
 import {Menu, Container, Button, Header, Icon, Dropdown, Segment, Form} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { API_ROOT } from '../constants'
 
 
 
@@ -24,7 +25,7 @@ class NewUser extends React.Component {
     event.preventDefault()
     if (this.state.name !== "" && this.state.bio !== "") {
     let myBody = {name: this.state.name, bio: this.state.bio, image: this.state.image};
-    fetch('${API_ROOT}/users', {
+    fetch(`${API_ROOT}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +33,7 @@ class NewUser extends React.Component {
       },
       body: JSON.stringify(myBody)
     }).then(resp => resp.json()).
-    then(json => {console.log(json); this.props.routerProps.history.push("/startgame")})
+    then(json => {console.log(json); this.props.routerProps.history.push("/")})
     } else {
     alert("fill it out")
     }
@@ -44,10 +45,7 @@ class NewUser extends React.Component {
       <div >
         <Container>
           <Menu  inverted pointing secondary size='large'>
-            <Menu.Item as={Link} to="startgame" active>Home</Menu.Item>
-            <Menu.Item as='a'>Careers</Menu.Item>
-            <Menu.Item as='a'>Add a Question</Menu.Item>
-            <Menu.Item as='a'>Api</Menu.Item>
+            <Menu.Item as={Link} to="" active>Home</Menu.Item>
             <Menu.Item position='right'>
               <Button as={Link} to="new" inverted className={"white-link"}>Add User</Button>
               <Button as={Link} to="edit" inverted style={{ marginLeft: '0.5em' }}>Edit User</Button>
@@ -75,7 +73,7 @@ class NewUser extends React.Component {
                 Submit
                 <Icon name='right arrow' />
               </Button>
-              <Button secondary size='huge' as={Link} to="startgame">
+              <Button secondary size='huge' as={Link} to="">
                 Main Menu
                 <Icon name='home' style={{marginLeft: "0.5em"}}/>
               </Button>
@@ -101,7 +99,7 @@ export default NewUser;
 //     <input type="text" id="image" value={this.state.image} onChange={this.handleChange}/>
 //     <button type="submit" >Submit</button>
 //   </form>
-//   <Link to="/startgame">
+//   <Link to="/">
 //     <button >Back to Start Game Page</button>
 //   </Link>
 // </div>

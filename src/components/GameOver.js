@@ -31,7 +31,7 @@ const GameOver = (props) => {
     <div>
       <Container>
         <Menu  inverted pointing secondary size='large'>
-          <Menu.Item as={Link} to="startgame" active>Home</Menu.Item>
+          <Menu.Item as={Link} to="" active>Home</Menu.Item>
           <Menu.Item as='a'>Careers</Menu.Item>
           <Menu.Item as='a'>Add a Question</Menu.Item>
           <Menu.Item as='a'>Api</Menu.Item>
@@ -72,7 +72,7 @@ const GameOver = (props) => {
         Play Again?
         <Icon name='right arrow' />
       </Button>
-      <Button secondary size='huge' as={Link} to="startgame">
+      <Button secondary size='huge' as={Link} to="">
         Main Menu
         <Icon name='home' style={{marginLeft: "0.5em"}}/>
       </Button>
@@ -95,5 +95,5 @@ export default GameOver;
 //         })
 //     }</h2>
 //   <h2>Player 2's best Category: {bestCategory(props.location.state.player2RoundsArray)}</h2>
-//   <Link to="/startgame"><button>Play Again?</button></Link>
+//   <Link to="/"><button>Play Again?</button></Link>
 //     </div>

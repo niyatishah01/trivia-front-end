@@ -2,16 +2,15 @@ import React from 'react';
 import {Menu, Container, Button, Header, Icon, Dropdown, Segment} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import LeaderBoard from './components/LeaderBoard';
+// import Parser from 'html-react-parser';
+// import Directions from './components/Directions';
 
 const Jumbo = (props) => {
   return (
     <div >
       <Container>
         <Menu  inverted pointing secondary size='large'>
-          <Menu.Item as={Link} to="startgame" active>Home</Menu.Item>
-          <Menu.Item as='a'>Careers</Menu.Item>
-          <Menu.Item as='a'>Add a Question</Menu.Item>
-          <Menu.Item as='a'>Api</Menu.Item>
+          <Menu.Item as={Link} to="" active>Home</Menu.Item>
           <Menu.Item position='right'>
             <Button as={Link} to="new" inverted className={"white-link"}>Add User</Button>
             <Button as={Link} to="edit" inverted style={{ marginLeft: '0.5em' }}>Edit User</Button>
@@ -30,11 +29,11 @@ const Jumbo = (props) => {
         />
         <Header
           as='h2'
-          content="Win absolutely nothing but hey, that's cool.."
+          content={props.displayCount ? "To buzz in click on the left(Player 1) or right(Player 2) shift button on the keyboard" : "Win absolutely nothing but hey, that's cool.."}
           inverted
           style={{ fontSize: '1.7em', fontWeight: 'normal' }}
         />
-        <Button primary size='huge' onClick={props.handleClick}>
+        <Button primary size='huge' onClick={props.handleClick} disabled={props.displayCount ? true : false}>
           Start a Game
           <Icon name='right arrow' />
         </Button>
